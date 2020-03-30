@@ -1,5 +1,8 @@
 module.exports = {
   getSourceRootFromAgent: agent => {
+    if (!agent) {
+      return ''
+    }
     const agentTags = agent.tags || []
     if (!agentTags || !agentTags.length) {
       return ''
