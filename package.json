@@ -6,7 +6,8 @@
   "scripts": {
     "pretest": "./node_modules/.bin/babel src --out-dir lib --plugins=babel-plugin-istanbul",
     "test": "cross-env NODE_ENV=test node --inspect-brk node_modules/jest/bin/jest.js lib",
-    "test:single": "node --inspect-brk node_modules/jest/bin/jest.js src --coverage"
+    "test:coverage": "node --inspect-brk `which jest` src --coverage",
+    "test:scope": "node --inspect-brk `which jest` src --coverage --testRunner=@undefinedlabs/scope-agent/jest/testRunner --runner=@undefinedlabs/scope-agent/jest/runner --setupFilesAfterEnv=@undefinedlabs/scope-agent/jest/setupTests"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/register": "^7.9.0",
+    "@undefinedlabs/scope-agent": "^0.4.1",
     "babel-plugin-istanbul": "^6.0.0",
     "cross-env": "^7.0.2",
     "jest": "^25.2.1",
